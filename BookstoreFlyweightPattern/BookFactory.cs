@@ -15,9 +15,14 @@ namespace BookstoreFlyweightPattern
             string key = type + distributor;
             if (_bookTypes.ContainsKey(key) == false)
             {
-                _bookTypes.Add(key, new BookType(type, distributor));
+                AddBookType(key, type, distributor);
             }
             return _bookTypes[key];
+        }
+
+        public void AddBookType(string key, string type, string distributor)
+        {
+            _bookTypes.Add(key, new BookType(type, distributor))
         }
     }
 }
